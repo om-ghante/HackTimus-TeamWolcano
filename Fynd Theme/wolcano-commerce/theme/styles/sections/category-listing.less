@@ -1,0 +1,109 @@
+@import "../main.less";
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  padding: 0 40px;
+  margin-bottom: 32px;
+  @media @tablet {
+    gap: 8px;
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+}
+
+.categoryGrid {
+  display: grid;
+  gap: 24px;
+  padding: 0 40px;
+  grid-template-columns: repeat(var(--per_row), 1fr);
+  @media @tablet {
+    grid-template-columns: repeat(var(--brand-item), 1fr);
+    gap: 12px;
+    padding: 0 24px;
+  }
+  @media @mobile {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 16px;
+  }
+  .gridItem {
+    min-width: 0;
+  }
+  &.singleItem {
+    display: flex;
+    justify-content: center;
+    & > * {
+      flex: 0 1 calc(100% / var(--per_row));
+      @media @mobile {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.categorySlider {
+  --gap: 24px;
+  padding: 0 40px;
+  @media @tablet {
+    --gap: 16px;
+    padding: 0 24px;
+  }
+  @media @mobile {
+    --gap: 12px;
+    padding: 0;
+  }
+  :global {
+    .slick-list{ 
+      margin: 0 calc(var(--gap) / 2 * -1);
+      @media @mobile {
+        margin: 0;
+      }
+    }
+  }
+  .sliderItem {
+    padding: 0 calc(var(--gap) / 2);
+  }
+  &.singleItem {
+    @media @mobile {
+      padding: 0 calc(16px - (var(--gap) / 2));
+    } 
+  }
+}
+
+.gap-above-button {
+  text-align: center;
+  padding-top: 32px;
+  @media @tablet {
+    padding-top: 16px;
+  }
+  @media @mobile {
+    padding-top: 24px;
+  }
+}
+
+.sectionButton {
+  padding: 12px 20px;
+  display: inline-block;
+  border-radius: @ButtonRadius;
+}
+
+@media @desktop {
+  .hideOnDesktop {
+    display: none;
+  }
+}
+@media @tablet {
+  .hideOnDesktop {
+    display: none;
+  }
+}
+@media @mobile {
+  .hideOnMobile {
+    display: none;
+  }
+  .hideOnDesktop {
+    display: block;
+  }
+}
